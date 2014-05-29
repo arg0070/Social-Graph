@@ -71,7 +71,7 @@ public class HTMLParser {
 		Elements selected = new Elements();
 		String domain = getDomain();
 
-		String pattern = ".*/r/.+";
+		String pattern = ".*/r/.[^/]+";
 		String domain_pattern = ".*/r/" + domain + "/?.*";
 
 		for (Element link : links) {

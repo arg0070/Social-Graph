@@ -19,7 +19,7 @@ public class App {
 	private static int num_nodes = 0;
 
 	/** Max number of iteractions. */
-	private static final int MAX_COUNT = 200;
+	private static final int MAX_COUNT = 300;
 
 	/** List of nodes. */
 	private static Set<String> nodes;
@@ -45,7 +45,7 @@ public class App {
 		FileWrite f = new FileWrite(nodes, edges);
 		f.writeNodes("nodes.csv");
 		f.writeEdges("edges.csv");
-	/*	for(String node : nodes)
+		/*for(String node : nodes)
 			System.out.println(node);
 		for(String edge : edges)
 			System.out.println(edge);

@@ -30,8 +30,7 @@ to start with. Ej: [http://www.reddit.com/r/sports](http://www.reddit.com/r/spor
 ## Know issues
 
 This isn't a perfect program... Use it on your own risk.
-* Links to subsections inside a subreddit are considered as independent nodes.
-* Duplicated nodes can appear. 
+* The graph is not complete: it only analyzes the first N nodes.
 
 ## Versions
 
