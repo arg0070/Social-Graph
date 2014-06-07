@@ -95,15 +95,18 @@ public class HTMLParser {
 		return domain;
 	}
 	
-	private String fixDomain(String html) {
+	private String getDomain(String html) {
 		String domain = "";
-		Pattern url_pattern = Pattern.compile("(.+/r/)(.[^/]+)");
+		Pattern url_pattern = Pattern.compile("(.*/r/)(.[^/]+)");
 		Matcher matcher = url_pattern.matcher(html);
 		if (matcher.find()) {
-			domain = html;
-		} else {
-			domain = "http://www.reddit.com" + html;
+			domain = matcher.group(2);
 		}
 		return domain;
+	}
+	
+	private String fixDomain(String html) {
+		String domain = getDomain(html);	
+		return "http://www.reddit.com/r/"+domain.toLowerCase()+"/";	
 	}
 }
