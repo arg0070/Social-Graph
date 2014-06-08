@@ -19,7 +19,7 @@ public class App {
 	private static int num_nodes = 0;
 
 	/** Max number of iteractions. */
-	private static final int MAX_COUNT = 300;
+	private static final int MAX_COUNT = 350;
 
 	/** List of nodes. */
 	private static Set<String> nodes;
@@ -37,6 +37,8 @@ public class App {
 
 		nodes.add(args[0]);
 
+		System.out.println("Operation in progress...");
+		
 		while (num_nodes < MAX_COUNT){
 			newSearch((setToList(nodes)).get(num_nodes));
 			num_nodes++;

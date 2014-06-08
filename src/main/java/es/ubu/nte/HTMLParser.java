@@ -69,14 +69,14 @@ public class HTMLParser {
 	 */
 	private Elements selectLinks(Elements links) {
 		Elements selected = new Elements();
-		String domain = getDomain();
+		String domain = getDomain(this.html).toLowerCase();
 
 		String pattern = ".*/r/.[^/]+";
 		String domain_pattern = ".*/r/" + domain + "/?.*";
 
 		for (Element link : links) {
 			if (Pattern.matches(pattern, link.attr("href"))
-					&& !Pattern.matches(domain_pattern, link.attr("href")))
+					&& !Pattern.matches(domain_pattern, link.attr("href").toLowerCase()))
 				selected.add(link);
 		}
 		return selected;
@@ -84,17 +84,9 @@ public class HTMLParser {
 
 	/**
 	 * Return the subreddit name to avoid links to it self.
+	 * @param html html link
+	 * @return name of the subreddit
 	 */
-	private String getDomain() {
-		String domain = "";
-		Pattern url_pattern = Pattern.compile("(.*/r/)(.[^/]+)");
-		Matcher matcher = url_pattern.matcher(html);
-		if (matcher.find()) {
-			domain = matcher.group(2);
-		}
-		return domain;
-	}
-	
 	private String getDomain(String html) {
 		String domain = "";
 		Pattern url_pattern = Pattern.compile("(.*/r/)(.[^/]+)");
